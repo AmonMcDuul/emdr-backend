@@ -23,4 +23,24 @@ public class SessionHub : Hub
     {
         await Clients.Group(sessionId).SendAsync("RecieveSpeed", speed);
     }
+
+    public async Task ToggleSound(string sessionId, bool enableSound)
+    {
+        await Clients.Group(sessionId).SendAsync("RecieveToggleSound", enableSound);
+    }
+
+    public async Task ToggleDistraction(string sessionId, bool enableDistraction)
+    {
+        await Clients.Group(sessionId).SendAsync("RecieveToggleDistraction", enableDistraction);
+    }
+
+    //public async Task SetVideo(string sessionId, string videoUrl)
+    //{
+    //    await Clients.Group(sessionId).SendAsync("RecieveSetVideo", videoUrl);
+    //}
+
+    //public async Task ToggleVideo(string sessionId, bool enableVideo)
+    //{
+    //    await Clients.Group(sessionId).SendAsync("RecieveToggleVideo", enableVideo);
+    //}
 }
