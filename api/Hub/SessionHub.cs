@@ -14,11 +14,6 @@ public class SessionHub : Hub
         await Groups.RemoveFromGroupAsync(Context.ConnectionId, sessionId);
     }
 
-    public async Task UpdateSession(string sessionId)
-    {
-        await Clients.Group(sessionId).SendAsync("ReceiveScoreUpdate", sessionId);
-    }
-
     public async Task SetEmdrState(string sessionId, string state)
     {
         await Clients.Group(sessionId).SendAsync("RecieveEmdrState", state);
